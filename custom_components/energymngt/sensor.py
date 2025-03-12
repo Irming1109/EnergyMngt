@@ -71,6 +71,9 @@ class EnergyMngtSensor(SensorEntity):
         )
         self._attr_should_poll = True
 
+        LOGGER.debug(f"CONF_NAME: {CONF_NAME}")
+        LOGGER.debug(f"self._config.data.get(CONF_NAME): {self._config.data.get(CONF_NAME)}")
+
         self._attr_device_info = {
             "identifiers": {(DOMAIN, self._config.entry_id)},
             "name": self._config.data.get(CONF_NAME),

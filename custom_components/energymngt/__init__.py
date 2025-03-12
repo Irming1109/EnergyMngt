@@ -12,11 +12,12 @@ LOGGER = logging.getLogger(__name__)
 # Denne funktion bliver kaldt, når integrationen er blevet konfigureret gennem UI (via Config Flow)
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
 
+    LOGGER.info("Kasper: async_setup_entry")
     hass.data.setdefault(DOMAIN, {})
-    integration = await async_get_integration(hass, DOMAIN)
-    LOGGER.info(STARTUP, integration.version)
+    # integration = await async_get_integration(hass, DOMAIN)
+    # LOGGER.info(STARTUP, integration.version)
 
-    LOGGER.info(f"Konfiguration af enermymngt entry: {entry.entry_id}")
+    # LOGGER.info(f"Konfiguration af enermymngt entry: {entry.entry_id}")
     
     # Her kan du initialisere sensorer eller andre enheder, hvis nødvendigt
     # For eksempel kan du tilføje sensorer som en del af entry konfigurationen

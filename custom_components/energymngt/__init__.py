@@ -26,6 +26,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     # Her kan du initialisere sensorer eller andre enheder, hvis nødvendigt
     # For eksempel kan du tilføje sensorer som en del af entry konfigurationen
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = entry.data
+    await async_setup_entry(hass, entry, async_add_entities)
 
     # Returner True for at indikere at opsætningen er gennemført
     return True

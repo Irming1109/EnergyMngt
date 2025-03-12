@@ -3,12 +3,13 @@ import voluptuous as vol
 
 from .const import DOMAIN
 
-class EnermymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+class EnermymngtConfigFlow(config_entries.ConfigFlow):
 
     VERSION = 1
 
     async def async_step_user(self, user_input=None):
-        """Step 1: User starts configuration in flow"""
+
+        """Handle a config flow for Stromligning."""
         errors = {}
 
         if user_input is not None:

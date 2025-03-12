@@ -3,7 +3,7 @@ import voluptuous as vol
 
 from .const import DOMAIN
 
-class EnermymngtConfigFlow(config_entries.ConfigFlow):
+class EnergymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 

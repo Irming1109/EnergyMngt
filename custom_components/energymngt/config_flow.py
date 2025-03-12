@@ -15,7 +15,8 @@ class EnergymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             # Create a new entry with what, user has entered
             return self.async_create_entry(title="Energi Management Integration", data=user_input)
-
+            
+            
         # Defines needed inputs from user (example: sensor_name)
         schema = vol.Schema(
             {

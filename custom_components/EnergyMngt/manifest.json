@@ -1,6 +1,6 @@
 {
-  "domain": "irming",
-  "name": "EnergyMngt",
+  "domain": "EnergyMngt",
+  "name": "Energy management",
   "version": "1.0.0",
   "documentation": "https://github.com/Irming1109/EnergyMngt",
   "dependencies": [],

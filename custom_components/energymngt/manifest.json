@@ -2,8 +2,10 @@
   "domain": "energymngt",
   "name": "Energy management",
   "version": "0.0.1",
-  "documentation": "https://github.com/Irming1109/EnergyMngt",
+  "documentation": "https://github.com/Irming1109/EnergyMngt/blob/main/README.md",
   "dependencies": [],
   "codeowners": [ "@Irming1109" ],
-  "requirements": [ "requests" ]
+  "requirements": [ "requests" ],
+  "iot_class": "local_polling",
+  "config_flow": true
 }

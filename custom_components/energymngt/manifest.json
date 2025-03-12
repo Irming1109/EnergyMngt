@@ -1,7 +1,7 @@
 {
   "domain": "energymngt",
   "name": "Energy management",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "documentation": "https://github.com/Irming1109/EnergyMngt/blob/main/README.md",
   "dependencies": [],
   "codeowners": [ "@Irming1109" ],

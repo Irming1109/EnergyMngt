@@ -1,0 +1,9 @@
+{
+  "domain": "irming",
+  "name": "EnergyMngt",
+  "version": "1.0.0",
+  "documentation": "https://github.com/Irming1109/EnergyMngt",
+  "dependencies": [],
+  "codeowners": ["@Irming1109"],
+  "requirements": ["requests"]
+}

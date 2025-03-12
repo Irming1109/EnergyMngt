@@ -1,0 +1,9 @@
+{
+  "country": [
+    "DK"
+  ],
+  "domains": [ "energymngt" ],
+  "homeassistant": "2025.1.1",
+  "name": "Energy Management",
+  "render_readme": true
+}

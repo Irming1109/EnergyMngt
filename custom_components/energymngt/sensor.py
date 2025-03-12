@@ -14,11 +14,14 @@ async def async_setup_entry(hass, entry: ConfigEntry, async_add_entities):
 class RandomNumberSensor(SensorEntity):
     """En simpel sensor, der viser et tilfældigt tal."""
 
+    _attr_device_class = "measurement"
+    _attr_native_unit_of_measurement = "units"
+
     def __init__(self, name):
         """Initialiser sensoren."""
         self._attr_name = name
         self._attr_unique_id = f"sensor_{name.lower().replace(' ', '_')}"
-        self._state = None
+        self._attr_state = None
 
     async def async_update(self):
         """Opdater sensorens tilstand med et nyt tilfældigt tal."""

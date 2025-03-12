@@ -2,7 +2,7 @@ import logging
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
-from homeassistant.loader import async_get_integration
+# from homeassistant.loader import async_get_integration
 
 from .const import DOMAIN, PLATFORMS, STARTUP
 
@@ -10,33 +10,30 @@ from .const import DOMAIN, PLATFORMS, STARTUP
 LOGGER = logging.getLogger(__name__)
 
 # Denne funktion bliver kaldt, når integrationen er blevet konfigureret gennem UI (via Config Flow)
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
-
-    LOGGER.info("Kasper: async_setup_entry")
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+  
+    LOGGER.info("Opsætning af entry for %s", DOMAIN)
     hass.data.setdefault(DOMAIN, {})
-    # integration = await async_get_integration(hass, DOMAIN)
-    # LOGGER.info(STARTUP, integration.version)
+    hass.data[DOMAIN][entry.entry_id] = entry.data
 
-    # LOGGER.info(f"Konfiguration af enermymngt entry: {entry.entry_id}")
-    
-    # Her kan du initialisere sensorer eller andre enheder, hvis nødvendigt
-    # For eksempel kan du tilføje sensorer som en del af entry konfigurationen
-    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = entry.data
-    # await async_setup_entry(hass, entry, async_add_entities)
+    # Forward config entry setup til sensorplatformen
+    hass.async_create_task(
+        hass.config_entries.async_forward_entry_setup(entry, "sensor")
+    )
 
-    # await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
-
-    # Returner True for at indikere at opsætningen er gennemført
     return True
 
 # Rydder op, når integrationen fjernes
-async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
-    """Fjern eventuelle ressourcer, når entry fjernes."""
-    LOGGER.info(f"Fjerner entry: {entry.entry_id}")
-    return True
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+ 
+    LOGGER.info("Fjerner entry for %s", DOMAIN)
+    unload_ok = await hass.config_entries.async_forward_entry_unload(entry, "sensor")
+    if unload_ok:
+        hass.data[DOMAIN].pop(entry.entry_id)
+        return True
+    return False
 
 
 async def async_setup(hass: HomeAssistant, config: dict):
-    """Set up integrationen fra konfigurationsfilen."""
-    hass.states.async_set(f"{DOMAIN}.status", "running5")
+    LOGGER.info("Opsætning af %s", DOMAIN)
     return True

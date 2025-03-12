@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\const.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\const.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\config_flow.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\config_flow.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\__init__.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\__init__.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\sensor.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\sensor.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\__init__.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\__init__.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\config_flow.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\config_flow.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:custom_components\\energymngt\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -39,12 +43,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "const.py",
+              "DocumentMoniker": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\const.py",
+              "RelativeDocumentMoniker": "custom_components\\energymngt\\const.py",
+              "ToolTip": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\const.py",
+              "RelativeToolTip": "custom_components\\energymngt\\const.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-03-12T12:20:23.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "manifest.json",
               "DocumentMoniker": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\manifest.json",
               "RelativeDocumentMoniker": "custom_components\\energymngt\\manifest.json",
               "ToolTip": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\manifest.json",
               "RelativeToolTip": "custom_components\\energymngt\\manifest.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-12T12:10:27.664Z",
               "EditorCaption": ""
@@ -64,26 +81,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "config_flow.py",
               "DocumentMoniker": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\config_flow.py",
               "RelativeDocumentMoniker": "custom_components\\energymngt\\config_flow.py",
               "ToolTip": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\config_flow.py",
               "RelativeToolTip": "custom_components\\energymngt\\config_flow.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-03-12T11:35:55.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "__init__.py",
               "DocumentMoniker": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\__init__.py",
               "RelativeDocumentMoniker": "custom_components\\energymngt\\__init__.py",
               "ToolTip": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\custom_components\\energymngt\\__init__.py",
               "RelativeToolTip": "custom_components\\energymngt\\__init__.py",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAYwCkAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-03-12T09:55:16.21Z",
               "EditorCaption": ""
@@ -94,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "readme.txt",
               "DocumentMoniker": "C:\\Users\\KasperHolm\\source\\repos\\EnergyMngt\\readme.txt",
               "RelativeDocumentMoniker": "readme.txt",

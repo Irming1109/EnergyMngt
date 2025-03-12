@@ -1,6 +1,6 @@
 from homeassistant.core import HomeAssistant
 
-DOMAIN = "EnergyMngt"
+DOMAIN = "energymngt"
 
 async def async_setup(hass: HomeAssistant, config: dict):
     """Set up integrationen fra konfigurationsfilen."""

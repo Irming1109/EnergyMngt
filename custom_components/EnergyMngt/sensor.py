@@ -2,7 +2,7 @@ from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.entity import EntityDescription
 import random
 
-DOMAIN = "EnergyMngt"
+DOMAIN = "energymngt"
 
 async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
     """Opsætning af sensoren."""

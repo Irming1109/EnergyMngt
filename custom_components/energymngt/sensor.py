@@ -30,7 +30,7 @@ SENSORS = [
     ),
 ]
 
-async def async_setup_entry(hass, entry: ConfigEntry, async_add_devices):
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_devices):
     """Setup sensors."""
     sensors = []
 
@@ -74,7 +74,7 @@ class EnergyMngtSensor(SensorEntity):
         self._attr_device_info = {
             "identifiers": {(DOMAIN, self._config.entry_id)},
             "name": self._config.data.get(CONF_NAME),
-            "manufacturer": "Strømligning",
+            "manufacturer": "Energy Management",
         }
 
         self._attr_native_unit_of_measurement = (

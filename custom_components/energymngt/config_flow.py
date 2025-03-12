@@ -9,7 +9,7 @@ class EnergymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(self, user_input=None):
 
-        """Handle a config flow for Stromligning."""
+        """Handle a config flow for EnergyMngt."""
         errors = {}
 
         if user_input is not None:

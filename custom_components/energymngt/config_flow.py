@@ -19,7 +19,7 @@ class EnergymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 title=user_input[CONF_NAME],
                 data={"name": user_input[CONF_NAME]},
                 options=user_input,
-                description=f"Strømligning - {user_input[CONF_NAME]}",
+                description=f"Energy Management - {user_input[CONF_NAME]}",
             )
             
         # Defines needed inputs from user (example: sensor_name)

@@ -4,7 +4,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 # from homeassistant.loader import async_get_integration
 
-from .const import DOMAIN, PLATFORMS, STARTUP
+from .const import DOMAIN, PLATFORMS
 
 # Initialiserer et logger for integrationen
 LOGGER = logging.getLogger(__name__)
@@ -16,10 +16,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][entry.entry_id] = entry.data
 
-    # Forward config entry setup til sensorplatformen
-    hass.async_create_task(
-        hass.config_entries.async_forward_entry_setup(entry, "sensor")
-    )
+    # Forward config entry setup to the sensor platform
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    #hass.async_create_task(
+    #    hass.config_entries.async_forward_entry_setup(entry, "sensor")
+    #)
 
     return True
 
@@ -27,7 +28,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
  
     LOGGER.info("Fjerner entry for %s", DOMAIN)
-    unload_ok = await hass.config_entries.async_forward_entry_unload(entry, "sensor")
+    unload_ok = await hass.config_entries.async_forward_entry_unload(entry, PLATFORMS)
     if unload_ok:
         hass.data[DOMAIN].pop(entry.entry_id)
         return True

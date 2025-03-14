@@ -43,6 +43,12 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
                 description=f"Energy Management - {self.config_entry.data.get(CONF_NAME)}",
             )
 
+        scheme = vol.Schema(
+            {
+               
+            }
+        )
+
         return self.async_show_form(step_id="init", data_schema=schema, errors=errors)
 
 class EnergymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -65,7 +71,8 @@ class EnergymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         # Defines needed inputs from user (example: sensor_name)
         schema = vol.Schema(
             {
-                vol.Required("sensor_name", default="Min Sensor"): str,
+                #vol.Required("sensor_name", default="Min Sensor"): str,
+                vol.Required(CONF_NAME, default=CONF_DEFAULT_NAME): str,
             }
         )
 

@@ -34,7 +34,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_d
 
     sensor_name = "kaspermngt"
     async_add_entities([RandomNumberSensor(sensor_name)], True)
-
+    
     """Setup sensors."""
     sensors = []
 
@@ -46,7 +46,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_d
         )
         sensors.append(entity)
 
-    async_add_devices(sensors)
+    #async_add_devices(sensors)
 
 
 class EnergyMngtSensor(SensorEntity):
@@ -158,17 +158,17 @@ class RandomNumberSensor(SensorEntity):
     _attr_device_class = "measurement"
     _attr_native_unit_of_measurement = "units"
 
-   def __init__(self, name):
-       """Initialiser sensoren."""
-       self._attr_name = name
-       self._attr_unique_id = f"sensor_{name.lower().replace(' ', '_')}"
-       self._attr_state = None
+    def __init__(self, name):
+        """Initialiser sensoren."""
+        self._attr_name = name
+        self._attr_unique_id = f"sensor_{name.lower().replace(' ', '_')}"
+        self._attr_state = None
 
-   async def async_update(self):
-       """Opdater sensorens tilstand med et nyt tilfældigt tal."""
-       self._state = random.randint(0, 100)
+    async def async_update(self):
+        """Opdater sensorens tilstand med et nyt tilfældigt tal."""
+        self._state = 33 #random.randint(0, 100)
 
     @property
-   def native_value(self):
-       """Returnerer sensorens aktuelle værdi."""
-       return self._state
+        def native_value(self):
+        """Returnerer sensorens aktuelle værdi."""
+        return self._state

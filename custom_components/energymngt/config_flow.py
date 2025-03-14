@@ -43,9 +43,9 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
                 description=f"Energy Management - {self.config_entry.data.get(CONF_NAME)}",
             )
 
-        scheme = vol.Schema(
+        schema = vol.Schema(
             {
-               
+                vol.Required(CONF_NAME, default=CONF_DEFAULT_NAME): str,
             }
         )
 

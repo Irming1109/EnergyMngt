@@ -1,7 +1,18 @@
-from homeassistant import config_entries
+import logging
 import voluptuous as vol
 
+from typing import Any
+
+from homeassistant import config_entries
+from homeassistant.const import CONF_NAME
+
+from homeassistant.helpers.event import async_call_later
+
+
+from . import async_setup_entry, async_unload_entry
 from .const import DOMAIN
+
+LOGGER = logging.getLogger(__name__)
 
 class EnergymngtOptionsFlow(config_entries.OptionsFlow):
     """EnergyMngt options flow handler."""
@@ -9,6 +20,7 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize EnergyMngt options flow."""
         self.config_entry = config_entry
+        self._errors = {}
 
     async def _do_update(
         self, *args, **kwargs  # pylint: disable=unused-argument
@@ -20,6 +32,7 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
     async def async_step_init(self, user_input: Any | None = None):
         """Handle the initial options flow step."""
 
+        errors = {}
         if user_input is not None and "base" not in errors:
             LOGGER.debug("Saving settings")
             

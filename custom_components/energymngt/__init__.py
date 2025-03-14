@@ -18,7 +18,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Forward config entry setup til sensorplatformen
     hass.async_create_task(
-        hass.config_entries.async_forward_entry_setup(entry, "sensor")
+        hass.config_entries.async_forward_entry_setups(entry, "sensor")
     )
 
     return True

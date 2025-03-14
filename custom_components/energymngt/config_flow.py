@@ -9,7 +9,6 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize EnergyMngt options flow."""
         self.config_entry = config_entry
-        self._errors = {}
 
     async def _do_update(
         self, *args, **kwargs  # pylint: disable=unused-argument
@@ -20,13 +19,10 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
 
     async def async_step_init(self, user_input: Any | None = None):
         """Handle the initial options flow step."""
-        errors = {}
-
-        api = self.hass.data[DOMAIN][self.config_entry.entry_id]._data
 
         if user_input is not None and "base" not in errors:
             LOGGER.debug("Saving settings")
-           
+            
             async_call_later(self.hass, 2, self._do_update)
             return self.async_create_entry(
                 title=self.config_entry.data.get(CONF_NAME),
@@ -34,13 +30,9 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
                 description=f"Energy Management - {self.config_entry.data.get(CONF_NAME)}",
             )
 
-        LOGGER.debug("Showing options form")
-
-        return self.async_show_form(step_id="init", data_schema=scheme, errors=errors)
+        return self.async_show_form(step_id="init", data_schema=schema, errors=errors)
 
 class EnergymngtConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-
-    VERSION = 1
 
     async def async_step_user(self, user_input=None):
 

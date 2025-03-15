@@ -39,10 +39,10 @@ async def async_setup(hass: HomeAssistant, config: dict):
     LOGGER.info("Opsætning af %s", DOMAIN)
 
     async def handle_get_hello_world2(call: ServiceCall):
-        entry_id = call.data['entry_id']
-        api: EnergyMngtAPI = hass.data[DOMAIN][entry_id]
-        result = api.get_hello_world2()
-        hass.states.set('energymngt.hello_world2', result)
+        #entry_id = call.data['entry_id']
+        #api: EnergyMngtAPI = hass.data[DOMAIN][entry_id]
+        #result = api.get_hello_world2()
+        hass.states.set('energymngt.hello_world2', "Hurra")
 
     hass.services.async_register(DOMAIN, 'get_hello_world2', handle_get_hello_world2, schema=cv.make_entity_service_schema({
         'entry_id': cv.string,

@@ -21,14 +21,14 @@ from .const import CONF_TEMPLATE, DEFAULT_TEMPLATE, DOMAIN
 
 LOGGER = logging.getLogger(__name__)
 
-SENSORS = [
-        EnergyMngtSensorEntityDescription(
-        key="hello_world_str",
-        entity_category=None,
-        icon="mdi:flash",
-        value_fn=lambda energymngt: energymngt.get_hello_world(),
-    ),
-]
+#SENSORS = [
+#        EnergyMngtSensorEntityDescription(
+#        key="hello_world_str",
+#        entity_category=None,
+#        icon="mdi:flash",
+#        value_fn=lambda energymngt: energymngt.get_hello_world(),
+#    ),
+#]
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_devices):
 

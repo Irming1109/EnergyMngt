@@ -41,7 +41,7 @@ async def async_setup(hass: HomeAssistant, config: dict):
         # Set a state with a static message for testing purposes
         hass.states.set('energymngt.test_service', "This is a test message")
 
-    hass.services.async_register(DOMAIN, 'test_service', handle_test_service, schema=cv.make_entity_service_schema({}))
+    hass.services.async_register(DOMAIN, 'test_service', handle_test_service, schema=vol.Schema({}))
 
     async def handle_get_hello_world2(call: ServiceCall):
         # For testing purposes, just return a static value

@@ -169,6 +169,6 @@ class RandomNumberSensor(SensorEntity):
         self._state = 33 #random.randint(0, 100)
 
     @property
-        def native_value(self):
+    def native_value(self):
         """Returnerer sensorens aktuelle værdi."""
         return self._state

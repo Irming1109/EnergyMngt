@@ -1,0 +1,3 @@
+get_hello_world2:
+  description: "Returns Hello World 2"
+  fields: {}

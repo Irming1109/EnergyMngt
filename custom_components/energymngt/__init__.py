@@ -5,6 +5,7 @@ from homeassistant.core import HomeAssistant, ServiceCall
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 
+from .services import async_setup_services
 from .api import EnergyMngtAPI
 from .const import DOMAIN, PLATFORMS
 
@@ -19,6 +20,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     api = EnergyMngtAPI(hass, entry)
     hass.data[DOMAIN][entry.entry_id] = api
+
+    await async_setup_services(hass)
 
     # Forward config entry setup to the sensor platform
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
@@ -38,12 +41,12 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 async def async_setup(hass: HomeAssistant, config: dict):
     LOGGER.info("Setting up %s", DOMAIN)
 
-    async def handle_test_service(call: ServiceCall):
+    #async def handle_test_service(call: ServiceCall):
         # Set a state with a static message for testing purposes
-        LOGGER.info("Test service called")
-        hass.states.set("energymngt.test_service", "This is a test message")
+    #    LOGGER.info("Test service called")
+    #    hass.states.set("energymngt.test_service", "This is a test message")
 
-    hass.services.async_register(DOMAIN, 'test_service', handle_test_service, schema=vol.Schema({}))
+    #hass.services.async_register(DOMAIN, 'test_service', handle_test_service, schema=vol.Schema({}))
 
     async def handle_get_hello_world2(call: ServiceCall):
         # For testing purposes, just return a static value

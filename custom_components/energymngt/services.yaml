@@ -1,7 +1,12 @@
 get_hello_world2:
+  name: get_hello_world2    
   description: "Returns Hello World 2"
   fields: {}
 
 test_service:
-  description: "Returns a test message"
-  fields: {}
+  name: test_service
+  description: "A test service that returns a static message."
+  fields:
+    message:
+      description: "The message to return."
+      example: "Hello, World!"

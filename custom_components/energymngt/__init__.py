@@ -34,18 +34,18 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         return True
     return False
 
-
 async def async_setup(hass: HomeAssistant, config: dict):
-    LOGGER.info("Opsætning af %s", DOMAIN)
+    LOGGER.info("Setting up %s", DOMAIN)
 
     async def handle_get_hello_world2(call: ServiceCall):
+        # For testing purposes, just return a static value
         #entry_id = call.data['entry_id']
         #api: EnergyMngtAPI = hass.data[DOMAIN][entry_id]
         #result = api.get_hello_world2()
-        hass.states.set('energymngt.hello_world2', "Hurra")
+        hass.states.set('energymngt.hello_world2', "Hello World 2")
 
     hass.services.async_register(DOMAIN, 'get_hello_world2', handle_get_hello_world2, schema=cv.make_entity_service_schema({
         'entry_id': cv.string,
     }))
-    
+
     return True

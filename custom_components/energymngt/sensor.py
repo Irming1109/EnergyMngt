@@ -32,7 +32,7 @@ SENSORS = [
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities):
 
-    sensor_name = "kaspermngt"
+    sensor_name = "energymngtKasper"
     async_add_entities([RandomNumberSensor(sensor_name)], True)
     
     """Setup sensors."""

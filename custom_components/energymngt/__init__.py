@@ -1,8 +1,9 @@
 import logging
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.helpers import config_validation as cv
 from homeassistant.core import HomeAssistant, ServiceCall
+from homeassistant.helpers import config_validation as cv
+import voluptuous as vol
 
 from .api import EnergyMngtAPI
 from .const import DOMAIN, PLATFORMS

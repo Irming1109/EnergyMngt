@@ -50,20 +50,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 
 
 class EnergyMngtSensor(SensorEntity):
-    """Representation of a EnergyMngt Sensor."""
-
-    _attr_has_entity_name = True
-    _attr_available = True
-
-    def __init__(
-        self,
-        description: EnergyMngtSensorEntityDescription,
-        hass: HomeAssistant,
-        entry: ConfigEntry,
-    ) -> None:
-        """Initialize a EnergyMngt Sensor."""
+    def __init__(self, description: EnergyMngtSensorEntityDescription, hass: HomeAssistant, entry: ConfigEntry) -> None:
         super().__init__()
-
         self.entity_description = description
         self._config = entry
         self._hass = hass
@@ -74,9 +62,6 @@ class EnergyMngtSensor(SensorEntity):
             f"{self.entity_description.key}_{self._config.entry_id}"
         )
         self._attr_should_poll = True
-
-        LOGGER.debug(f"CONF_NAME: {CONF_NAME}")
-        LOGGER.debug(f"self._config.data.get(CONF_NAME): {self._config.data.get(CONF_NAME)}")
 
         self._attr_device_info = {
             "identifiers": {(DOMAIN, self._config.entry_id)},

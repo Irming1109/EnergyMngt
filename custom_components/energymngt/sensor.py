@@ -26,15 +26,11 @@ SENSORS = [
         key="hello_world_str",
         entity_category=None,
         icon="mdi:flash",
-        value_fn=lambda energymngt: energymngt.get_hello_world(),
+        value_fn=lambda energymngt: energymngt.get_hello_world2(),
     ),
 ]
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities):
-
-    sensor_name = "energymngtKasper"
-    async_add_entities([RandomNumberSensor(sensor_name)], True)
-    
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities):   
     """Setup sensors."""
     sensors = []
 
@@ -130,30 +126,3 @@ class EnergyMngtSensor(SensorEntity):
     async def async_added_to_hass(self):
         await self.handle_update()
         return await super().async_added_to_hass()
-
-
-#async def async_setup_entry(hass, entry: ConfigEntry, async_add_entities):
-#    """Opsæt sensoren baseret på UI-konfigurationen."""
-#    sensor_name = entry.data.get("sensor_name", "Min Sensor")  # Henter sensor-navnet fra entry
-#    async_add_entities([RandomNumberSensor(sensor_name)], True)
-
-class RandomNumberSensor(SensorEntity):
-    """En simpel sensor, der viser et tilfældigt tal."""
-
-    _attr_device_class = "measurement"
-    _attr_native_unit_of_measurement = "units"
-
-    def __init__(self, name):
-        """Initialiser sensoren."""
-        self._attr_name = name
-        self._attr_unique_id = f"sensor_{name.lower().replace(' ', '_')}"
-        self._attr_state = None
-
-    async def async_update(self):
-        """Opdater sensorens tilstand med et nyt tilfældigt tal."""
-        self._state = 33 #random.randint(0, 100)
-
-    @property
-    def native_value(self):
-        """Returnerer sensorens aktuelle værdi."""
-        return self._state

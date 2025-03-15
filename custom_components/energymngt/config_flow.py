@@ -8,7 +8,6 @@ from homeassistant.const import CONF_NAME
 
 from homeassistant.helpers.event import async_call_later
 
-
 from . import async_setup_entry, async_unload_entry
 from .const import DOMAIN, CONF_DEFAULT_NAME
 

@@ -20,3 +20,6 @@ class EnergyMngtAPI:
 
     def get_hello_world(self):
         return "Hello, World!"
+
+    def get_hello_world2(self):
+        return 66

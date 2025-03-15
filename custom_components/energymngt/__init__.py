@@ -15,7 +15,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     LOGGER.info("Opsætning af entry for %s", DOMAIN)
     hass.data.setdefault(DOMAIN, {})
 
-    api = StromligningAPI(hass, entry)
+    api = EnergyMngtAPI(hass, entry)
     hass.data[DOMAIN][entry.entry_id] = api
 
     # Forward config entry setup to the sensor platform

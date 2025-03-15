@@ -30,7 +30,7 @@ LOGGER = logging.getLogger(__name__)
 #    ),
 #]
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_devices):
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities):
 
     sensor_name = "kaspermngt"
     async_add_entities([RandomNumberSensor(sensor_name)], True)

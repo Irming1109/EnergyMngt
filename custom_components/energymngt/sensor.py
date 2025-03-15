@@ -26,7 +26,7 @@ SENSORS = [
         key="hello_world_str",
         entity_category=None,
         icon="mdi:flash",
-        #value_fn=lambda energymngt: energymngt.get_hello_world(),
+        value_fn=lambda energymngt: energymngt.get_hello_world(),
     ),
 ]
 

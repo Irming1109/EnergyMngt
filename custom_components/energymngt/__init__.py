@@ -1,20 +1,20 @@
 import logging
-import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
-from homeassistant.helpers import config_validation as cv
+import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
 
 from .api import EnergyMngtAPI
 from .const import DOMAIN, PLATFORMS
 
-# Initialiserer et logger for integrationen
+# Initialize a logger for the integration
 LOGGER = logging.getLogger(__name__)
 
-# Denne funktion bliver kaldt, når integrationen er blevet konfigureret gennem UI (via Config Flow)
+# This function is called when the integration is configured through the UI (via Config Flow)
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
-    LOGGER.info("Opsætning af entry for %s", DOMAIN)
+    LOGGER.info("Setting up entry for %s", DOMAIN)
     hass.data.setdefault(DOMAIN, {})
 
     api = EnergyMngtAPI(hass, entry)
@@ -25,10 +25,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     return True
 
-# Rydder op, når integrationen fjernes
+# Clean up when the integration is removed
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
  
-    LOGGER.info("Fjerner entry for %s", DOMAIN)
+    LOGGER.info("Removing entry for %s", DOMAIN)
     unload_ok = await hass.config_entries.async_forward_entry_unload(entry, PLATFORMS)
     if unload_ok:
         hass.data[DOMAIN].pop(entry.entry_id)
@@ -40,6 +40,7 @@ async def async_setup(hass: HomeAssistant, config: dict):
 
     async def handle_test_service(call: ServiceCall):
         # Set a state with a static message for testing purposes
+        LOGGER.info("Test service called")
         hass.states.set('energymngt.test_service', "This is a test message")
 
     hass.services.async_register(DOMAIN, 'test_service', handle_test_service, schema=vol.Schema({}))

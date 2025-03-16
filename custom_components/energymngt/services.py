@@ -23,6 +23,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         """Handle the get_hello_world2 service call."""
 
         currency = call.data.get("currency", "N/A")
+        LOGGER.info("info: get_hello_world2")
         LOGGER.debug("called currency with %r", currency)
 
         api = hass.data[DOMAIN][ConfigEntry.entry_id]

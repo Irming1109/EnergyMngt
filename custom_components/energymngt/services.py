@@ -20,10 +20,11 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
 
-        sc = call.data
-        LOGGER.debug("called yearly with %r", sc)
+        #sc = call.data
+        #LOGGER.debug("called yearly with %r", sc)
 
-        value = sc["currency"]
+        value = "Yes"
+        #value = sc["currency"]
 
         LOGGER.debug("Got value %r", value)
         return value

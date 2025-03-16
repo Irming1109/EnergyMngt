@@ -23,8 +23,8 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         #sc = call.data
         #LOGGER.debug("called yearly with %r", sc)
 
-        currency = call.data.get("currency", "N/A")
-        hass.states.set("energymngt.hello_world2", "Hello World 2")
+        currency = "ddd"; #call.data.get("currency", "N/A")
+        #hass.states.set("energymngt.hello_world2", "Hello World 2")
         return {"currency": currency, "message": "Hello World 2"}  # Return a dictionary
 
         # For testing purposes, just return a static value

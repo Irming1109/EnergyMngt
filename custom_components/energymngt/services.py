@@ -24,7 +24,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         currency = call.data.get("currency", "N/A")
         LOGGER.debug("called currency with %r", currency)
 
-        api = EnergyMngtAPI(hass)
+        api = hass.data
         result = api.get_hello_world2()
 
         return {"result": result, "message": "Hello World 2"}  # Return a dictionary

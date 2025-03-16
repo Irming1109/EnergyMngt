@@ -1,7 +1,10 @@
 get_hello_world2:
   name: get_hello_world2    
   description: "Returns Hello World 2"
-  fields: {}
+  fields:
+    currency:
+      description: "What currecy should the prices be returned in"
+      example: "NOK" 
 
 test_service:
   name: test_service

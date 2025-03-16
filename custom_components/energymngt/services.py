@@ -6,27 +6,43 @@ from .const import DOMAIN
 
 LOGGER = logging.getLogger(__name__)
 
+HELLO_SCHEMA = vol.Schema(
+    {
+        vol.Required("currency"): str,
+    }
+)
+
 async def async_setup_services(hass: HomeAssistant) -> None:
     """Set up the services for the energymngt integration."""
 
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
+
+        sc = call.data
+        LOGGER.debug("called yearly with %r", sc)
+
+        value = sc["currency"]
+
+        LOGGER.debug("Got value %r", value)
+        return value
+
         # For testing purposes, just return a static value
         #entry_id = call.data['entry_id']
         #api: EnergyMngtAPI = hass.data[DOMAIN][entry_id]
         #result = api.get_hello_world2()
-        hass.states.set("energymngt.hello_world2", "Hello World 2")
+        #hass.states.set("energymngt.hello_world2", "Hello World 2")
 
-
-    mySchema = cv.make_entity_service_schema({'entry_id': cv.string})
-    LOGGER.info("mySchema: %s", mySchema)
+        #mySchema = cv.make_entity_service_schema({'entry_id': cv.string})
+        #LOGGER.info("mySchema: %s", mySchema)
 
     hass.services.async_register(
-        DOMAIN,
-        'get_hello_world2',
-        handle_get_hello_world2,
-        schema=mySchema
+        domain=DOMAIN,
+        service='get_hello_world2',
+        service_func=handle_get_hello_world2,
+        schema=HELLO_SCHEMA,
+        supports_response=SupportsResponse.OPTIONAL,
     )
+
 
     async def handle_test_service(call: ServiceCall) -> None:
         """Handle the test_service call."""

@@ -2,6 +2,7 @@ import logging
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall, SupportsResponse
 
 from .api import EnergyMngtAPI
@@ -24,7 +25,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         currency = call.data.get("currency", "N/A")
         LOGGER.debug("called currency with %r", currency)
 
-        api = hass.data
+        api = hass.data[DOMAIN][ConfigEntry.entry_id]
         result = api.get_hello_world2()
 
         return {"result": result, "message": "Hello World 2"}  # Return a dictionary

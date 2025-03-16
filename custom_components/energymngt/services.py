@@ -34,8 +34,6 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         #result = api.get_hello_world2()
         #hass.states.set("energymngt.hello_world2", "Hello World 2")
 
-        #mySchema = cv.make_entity_service_schema({'entry_id': cv.string})
-        #LOGGER.info("mySchema: %s", mySchema)
 
     hass.services.async_register(
         domain=DOMAIN,
@@ -45,6 +43,8 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         supports_response=SupportsResponse.OPTIONAL,
     )
 
+    mySchema = cv.make_entity_service_schema({'entry_id': cv.string})
+    LOGGER.info("mySchema: %s", mySchema)
 
     async def handle_test_service(call: ServiceCall) -> None:
         """Handle the test_service call."""

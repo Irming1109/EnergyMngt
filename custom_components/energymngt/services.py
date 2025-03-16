@@ -21,12 +21,8 @@ async def async_setup_services(hass: HomeAssistant) -> None:
 
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
-        LOGGER.info("handle_get_hello_world2")
-        LOGGER.debug("hass.data[DOMAIN][API_OBJ] %r", hass.data[DOMAIN][API_OBJ])
 
         currency = call.data.get("currency", "N/A")
-        LOGGER.info("info: get_hello_world2")
-        LOGGER.debug("called currency with %r", currency)
 
         api : EnergyMngtAPI = hass.data[DOMAIN][API_OBJ]
         result = api.get_hello_world2()
@@ -45,7 +41,6 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     async def handle_test_service(call: ServiceCall) -> None:
         """Handle the test_service call."""
         message = call.data.get("message", "This is a test message")
-        LOGGER.info(f"Test service called with message: {message}")
-        hass.states.set('energymngt.test_service', message)
+       
 
     hass.services.async_register(domain=DOMAIN, service="test_service", service_func=handle_test_service, schema=HELLO_SCHEMA)

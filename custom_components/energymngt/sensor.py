@@ -36,10 +36,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 
     for sensor in SENSORS:
         entity = EnergyMngtSensor(sensor, hass, entry)
-        LOGGER.debug(
-            "Added sensor with entity_id '%s'",
-            entity.entity_id,
-        )
+        LOGGER.info("Added sensor with entity_id '%s'", entity.entity_id)
         sensors.append(entity)
 
     async_add_entities(sensors)
@@ -110,7 +107,7 @@ class EnergyMngtSensor(SensorEntity):
                 self._hass.data[DOMAIN][API_OBJ]
             )
 
-            LOGGER.debug(
+            LOGGER.info(
                 "Setting value for '%s' to: %s",
                 self.entity_id,
                 self._attr_native_value,

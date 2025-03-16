@@ -33,7 +33,6 @@ class EnergymngtOptionsFlow(config_entries.OptionsFlow):
 
         errors = {}
         if user_input is not None and "base" not in errors:
-            LOGGER.debug("Saving settings")
             
             async_call_later(self.hass, 2, self._do_update)
             return self.async_create_entry(

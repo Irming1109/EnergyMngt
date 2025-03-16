@@ -2,7 +2,7 @@ import logging
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
-import homeassistant.helpers.config_validation as cv
+
 import voluptuous as vol
 
 from .services import async_setup_services
@@ -48,16 +48,16 @@ async def async_setup(hass: HomeAssistant, config: dict):
 
     #hass.services.async_register(DOMAIN, 'test_service', handle_test_service, schema=vol.Schema({}))
 
-    async def handle_get_hello_world2(call: ServiceCall):
+    #async def handle_get_hello_world2(call: ServiceCall):
         # For testing purposes, just return a static value
         #entry_id = call.data['entry_id']
         #api: EnergyMngtAPI = hass.data[DOMAIN][entry_id]
         #result = api.get_hello_world2()
-        hass.states.set("energymngt.hello_world2", "Hello World 2")
+    #    hass.states.set("energymngt.hello_world2", "Hello World 2")
 
-    hass.services.async_register(DOMAIN, 'get_hello_world2', handle_get_hello_world2, schema=cv.make_entity_service_schema({
-        'entry_id': cv.string,
-    }))
+    #hass.services.async_register(DOMAIN, 'get_hello_world2', handle_get_hello_world2, schema=cv.make_entity_service_schema({
+    #    'entry_id': cv.string,
+    #}))
 
 
 

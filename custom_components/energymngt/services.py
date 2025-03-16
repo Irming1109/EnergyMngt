@@ -4,6 +4,7 @@ import voluptuous as vol
 
 from homeassistant.core import HomeAssistant, ServiceCall, SupportsResponse
 
+from .api import EnergyMngtAPI
 from .const import DOMAIN
 
 LOGGER = logging.getLogger(__name__)

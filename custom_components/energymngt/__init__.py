@@ -23,6 +23,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data[DOMAIN][entry.entry_id] = api
     hass.data[DOMAIN]["Kasper"] = "Claus"
 
+    valll = hass.data[DOMAIN]["Kasper"]
+    LOGGER.info("valll %s", valll)
+
     await async_setup_services(hass)
 
     # Forward config entry setup to the sensor platform

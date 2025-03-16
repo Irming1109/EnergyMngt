@@ -23,15 +23,17 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         #sc = call.data
         #LOGGER.debug("called yearly with %r", sc)
 
-        currency = "ddd"; #call.data.get("currency", "N/A")
-        #hass.states.set("energymngt.hello_world2", "Hello World 2")
-        return {"currency": currency, "message": "Hello World 2"}  # Return a dictionary
+        currency = call.data.get("currency", "N/A")
 
         # For testing purposes, just return a static value
-        #entry_id = call.data['entry_id']
-        #api: EnergyMngtAPI = hass.data[DOMAIN][entry_id]
-        #result = api.get_hello_world2()
-        #hass.states.set("energymngt.hello_world2", "Hello World 2")
+        entry_id = call.data['entry_id']
+        return {"entry_id": entry_id, "message": "Hello World 2"}  # Return a dictionary
+
+
+        api = hass.data[DOMAIN][entry_id]
+        result = api.get_hello_world2()
+       
+        return {"result": result, "message": "Hello World 2"}  # Return a dictionary
 
 
     hass.services.async_register(

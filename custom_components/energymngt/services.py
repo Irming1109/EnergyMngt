@@ -22,6 +22,9 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
 
+        valll = hass.data[DOMAIN]["Kasper"]
+        LOGGER.info("valll %s", valll)
+
         currency = call.data.get("currency", "N/A")
         LOGGER.info("info: get_hello_world2")
         LOGGER.debug("called currency with %r", currency)

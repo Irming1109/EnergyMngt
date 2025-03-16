@@ -21,6 +21,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     api = EnergyMngtAPI(hass, entry)
     LOGGER.debug("entry.entry_id %s", entry.entry_id)
     hass.data[DOMAIN][entry.entry_id] = api
+    hass.data[DOMAIN]["Kasper"] = "Claus"
 
     await async_setup_services(hass)
 

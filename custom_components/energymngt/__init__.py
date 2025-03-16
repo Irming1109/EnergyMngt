@@ -7,7 +7,7 @@ import voluptuous as vol
 
 from .services import async_setup_services
 from .api import EnergyMngtAPI
-from .const import DOMAIN, PLATFORMS
+from .const import DOMAIN, PLATFORMS, API_OBJ
 
 # Initialize a logger for the integration
 LOGGER = logging.getLogger(__name__)
@@ -19,12 +19,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})
 
     api = EnergyMngtAPI(hass, entry)
-    LOGGER.debug("entry.entry_id %s", entry.entry_id)
-    hass.data[DOMAIN][entry.entry_id] = api
-    hass.data[DOMAIN]["Kasper"] = "Claus"
-
-    valll = hass.data[DOMAIN]["Kasper"]
-    LOGGER.info("valll %s", valll)
+    hass.data[DOMAIN][API_OBJ] = api
 
     await async_setup_services(hass)
 

@@ -6,7 +6,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall, SupportsResponse
 
 from .api import EnergyMngtAPI
-from .const import DOMAIN
+from .const import DOMAIN, API_OBJ
 
 LOGGER = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
         LOGGER.info("handle_get_hello_world2")
-        LOGGER.debug("hass.data[DOMAIN] %r", hass.data[DOMAIN])
+        LOGGER.debug("hass.data[DOMAIN][API_OBJ] %r", hass.data[DOMAIN][API_OBJ])
 
         valll = hass.data[DOMAIN]["Kasper"]
         LOGGER.info("valll %s", valll)
@@ -31,7 +31,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         LOGGER.info("info: get_hello_world2")
         LOGGER.debug("called currency with %r", currency)
 
-        api = hass.data[DOMAIN][ConfigEntry.entry_id]
+        api : EnergyMngtAPI = hass.data[DOMAIN][API_OBJ]
         result = api.get_hello_world2()
 
         return {"result": result, "message": "Hello World 2"}  # Return a dictionary

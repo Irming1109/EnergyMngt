@@ -17,7 +17,7 @@ from homeassistant.util import slugify as util_slugify
 
 from .api import EnergyMngtAPI
 from .base import EnergyMngtSensorEntityDescription
-from .const import CONF_TEMPLATE, DEFAULT_TEMPLATE, DOMAIN
+from .const import CONF_TEMPLATE, DEFAULT_TEMPLATE, DOMAIN, API_OBJ
 
 LOGGER = logging.getLogger(__name__)
 
@@ -51,7 +51,7 @@ class EnergyMngtSensor(SensorEntity):
         self.entity_description = description
         self._config = entry
         self._hass = hass
-        self.api: EnergyMngtAPI = hass.data[DOMAIN][entry.entry_id]
+        self.api: EnergyMngtAPI = hass.data[DOMAIN][API_OBJ]
         self._cost_template = entry.options.get(CONF_TEMPLATE)
 
         self._attr_unique_id = util_slugify(
@@ -107,7 +107,7 @@ class EnergyMngtSensor(SensorEntity):
         """Handle data update."""
         try:
             self._attr_native_value = self.entity_description.value_fn(
-                self._hass.data[DOMAIN][self._config.entry_id]
+                self._hass.data[DOMAIN][API_OBJ]
             )
 
             LOGGER.debug(

@@ -1,5 +1,7 @@
 import logging
 import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
+
 from homeassistant.core import HomeAssistant, ServiceCall
 
 from .const import DOMAIN

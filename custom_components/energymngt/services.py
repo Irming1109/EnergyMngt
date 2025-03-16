@@ -51,4 +51,4 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         LOGGER.info(f"Test service called with message: {message}")
         hass.states.set('energymngt.test_service', message)
 
-    hass.services.async_register(DOMAIN, "test_service", handle_test_service, mySchema)
+    hass.services.async_register(domain=DOMAIN, service="test_service", service_func=handle_test_service, schema=HELLO_SCHEMA)

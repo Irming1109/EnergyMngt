@@ -19,7 +19,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
 
 
     mySchema = cv.make_entity_service_schema({'entry_id': cv.string})
-    LOGGER.info("mySchema:" + mySchema)
+    LOGGER.info("mySchema: %s", mySchema)
 
     hass.services.async_register(
         DOMAIN,

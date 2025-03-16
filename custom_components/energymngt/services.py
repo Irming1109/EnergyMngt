@@ -21,6 +21,8 @@ async def async_setup_services(hass: HomeAssistant) -> None:
 
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
+        LOGGER.info("handle_get_hello_world2")
+        LOGGER.debug("hass.data %r", hass.data)
 
         valll = hass.data[DOMAIN]["Kasper"]
         LOGGER.info("valll %s", valll)
@@ -42,9 +44,6 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         schema=HELLO_SCHEMA,
         supports_response=SupportsResponse.OPTIONAL,
     )
-
-    mySchema = cv.make_entity_service_schema({'entry_id': cv.string})
-    LOGGER.info("mySchema: %s", mySchema)
 
     async def handle_test_service(call: ServiceCall) -> None:
         """Handle the test_service call."""

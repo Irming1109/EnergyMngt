@@ -20,10 +20,8 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
 
-        #sc = call.data
-        LOGGER.debug("called yearly with %r", sc)
-
         currency = call.data.get("currency", "N/A")
+        LOGGER.debug("called currency with %r", currency)
 
         api = EnergyMngtAPI()
         result = api.get_hello_world2()

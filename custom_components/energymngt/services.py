@@ -22,7 +22,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     async def handle_get_hello_world2(call: ServiceCall) -> None:
         """Handle the get_hello_world2 service call."""
         LOGGER.info("handle_get_hello_world2")
-        LOGGER.debug("hass.data %r", hass.data)
+        LOGGER.debug("hass.data[DOMAIN] %r", hass.data[DOMAIN])
 
         valll = hass.data[DOMAIN]["Kasper"]
         LOGGER.info("valll %s", valll)

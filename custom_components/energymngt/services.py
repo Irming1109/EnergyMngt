@@ -17,11 +17,15 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         #result = api.get_hello_world2()
         hass.states.set("energymngt.hello_world2", "Hello World 2")
 
+
+    mySchema = cv.make_entity_service_schema({'entry_id': cv.string})
+    LOGGER.info("mySchema:" + mySchema)
+
     hass.services.async_register(
         DOMAIN,
         'get_hello_world2',
         handle_get_hello_world2,
-        schema=cv.make_entity_service_schema({'entry_id': cv.string})
+        schema=mySchema
     )
 
     async def handle_test_service(call: ServiceCall) -> None:
@@ -30,4 +34,4 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         LOGGER.info(f"Test service called with message: {message}")
         hass.states.set('energymngt.test_service', message)
 
-    hass.services.async_register(DOMAIN, "test_service", handle_test_service)
+    hass.services.async_register(DOMAIN, "test_service", handle_test_service, mySchema)
